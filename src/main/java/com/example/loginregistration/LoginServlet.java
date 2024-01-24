@@ -25,6 +25,17 @@ public class LoginServlet extends HttpServlet {
         HttpSession session = request.getSession();
         RequestDispatcher dispatcher = null;
 
+        //Validation of Backend
+        if(uemail == null || uemail.equals("")){
+            session.setAttribute("status", "invalidEmail");
+            dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
+        }
+        if(upassword == null || upassword.equals("")){
+            session.setAttribute("status", "invalidPassword");
+            dispatcher = request.getRequestDispatcher("login.jsp");
+            dispatcher.forward(request, response);
+        }
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/loginregjsp?useSSL=false", "root", "AUCA@2023");
