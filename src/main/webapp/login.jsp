@@ -86,6 +86,12 @@
 	if (status == "failed"){
 		swal("Sorry", "Wrong Email and Password", "error")
 	}
+	if (status == "invalidEmail"){
+		swal("Sorry", "Please! Enter your Email", "error")
+	}
+	if (status == "invalidPassword"){
+		swal("Sorry", "Please! Enter your Password", "error")
+	}
 </script>
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->

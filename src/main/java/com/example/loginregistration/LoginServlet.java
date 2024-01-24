@@ -27,12 +27,12 @@ public class LoginServlet extends HttpServlet {
 
         //Validation of Backend
         if(uemail == null || uemail.equals("")){
-            session.setAttribute("status", "invalidEmail");
+            request.setAttribute("status", "invalidEmail");
             dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
         }
         if(upassword == null || upassword.equals("")){
-            session.setAttribute("status", "invalidPassword");
+            request.setAttribute("status", "invalidPassword");
             dispatcher = request.getRequestDispatcher("login.jsp");
             dispatcher.forward(request, response);
         }
