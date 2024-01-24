@@ -29,6 +29,7 @@ public class RegistrationServlet extends HttpServlet {
         String uemail = request.getParameter("email");
         String upassword = request.getParameter("pass");
         String umobile = request.getParameter("contact");
+
         RequestDispatcher dispatcher = null;
         Connection conn = null;
         /*
@@ -38,6 +39,32 @@ public class RegistrationServlet extends HttpServlet {
         out.println(upassword);
         out.println(umobile);
         Testing Purposes*/
+
+        //Validation of Backend
+        if(uname == null || uname.isEmpty()){
+            request.setAttribute("status", "invalidName");
+            dispatcher = request.getRequestDispatcher("registration.jsp");
+            dispatcher.forward(request, response);
+        }
+        if(uemail == null || uemail.isEmpty()){
+            request.setAttribute("status", "invalidEmail");
+            dispatcher = request.getRequestDispatcher("registration.jsp");
+            dispatcher.forward(request, response);
+        }
+        if(upassword == null || upassword.isEmpty()){
+            request.setAttribute("status", "invalidPassword");
+            dispatcher = request.getRequestDispatcher("registration.jsp");
+            dispatcher.forward(request, response);
+        }
+        if(umobile == null || umobile.isEmpty()){
+            request.setAttribute("status", "invalidMobilePhone");
+            dispatcher = request.getRequestDispatcher("registration.jsp");
+            dispatcher.forward(request, response);
+        } else if(umobile.length() > 10)  {
+            request.setAttribute("status", "invalidMobileLength");
+            dispatcher = request.getRequestDispatcher("registration.jsp");
+            dispatcher.forward(request, response);
+        }
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

@@ -86,10 +86,10 @@
 	if (status == "failed"){
 		swal("Sorry", "Wrong Email and Password", "error")
 	}
-	if (status == "invalidEmail"){
+	else if (status == "invalidEmail"){
 		swal("Sorry", "Please! Enter your Email", "error")
 	}
-	if (status == "invalidPassword"){
+	else if (status == "invalidPassword"){
 		swal("Sorry", "Please! Enter your Password", "error")
 	}
 </script>
