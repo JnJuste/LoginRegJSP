@@ -31,26 +31,26 @@
 							<div class="form-group">
 								<label for="name"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
-									type="text" name="name" id="name" placeholder="Your Name" required="required"/>
+									type="text" name="name" id="name" placeholder="Your Name" />
 							</div>
 							<div class="form-group">
 								<label for="email"><i class="zmdi zmdi-email"></i></label> <input
-									type="email" name="email" id="email" placeholder="Your Email" required="required"/>
+									type="email" name="email" id="email" placeholder="Your Email" />
 							</div>
 							<div class="form-group">
 								<label for="pass"><i class="zmdi zmdi-lock"></i></label> <input
-									type="password" name="pass" id="pass" placeholder="Password" required="required"/>
+									type="password" name="pass" id="pass" placeholder="Password" />
 							</div>
 							<div class="form-group">
 								<%--@declare id="re-pass"--%>
 									<label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
 								<input type="password" name="re_pass" id="re_pass"
-									placeholder="Repeat your password" required="required"/>
+									placeholder="Repeat your password" />
 							</div>
 							<div class="form-group">
 								<label for="contact"><i class="zmdi zmdi-lock-outline"></i></label>
 								<input type="text" name="contact" id="contact"
-									placeholder="Contact no" required="required"/>
+									placeholder="Contact no" />
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="agree-term" id="agree-term"
@@ -87,7 +87,22 @@
 <script type="text/javascript">
 	var status = document.getElementById("status").value;
 	if (status == "success"){
-		swal("Congrats", "Account Created Successfuly", "success")
+		swal("Congrats", "Account Created Successfully", "success")
+	}
+	else if (status == "invalidName"){
+		swal("Sorry", "Please! Enter your Name", "error")
+	}
+	else if (status == "invalidEmail"){
+		swal("Sorry", "Please! Enter your Email", "error")
+	}
+	else if (status == "invalidPassword"){
+		swal("Sorry", "Please! Enter your Password", "error")
+	}
+	else if (status == "invalidConfirmPassword"){
+		swal("Sorry", "Your Password do not match!", "error")
+	}
+	else if (status == "invalidMobilePhone"){
+		swal("Sorry", "Your Phone Number should have at least 10 digits", "error")
 	}
 </script>
 

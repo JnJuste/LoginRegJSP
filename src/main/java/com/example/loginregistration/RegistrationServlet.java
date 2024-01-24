@@ -28,6 +28,7 @@ public class RegistrationServlet extends HttpServlet {
         String uname = request.getParameter("name");
         String uemail = request.getParameter("email");
         String upassword = request.getParameter("pass");
+        String uRepassword = request.getParameter("re_pass");
         String umobile = request.getParameter("contact");
 
         RequestDispatcher dispatcher = null;
@@ -55,12 +56,17 @@ public class RegistrationServlet extends HttpServlet {
             request.setAttribute("status", "invalidPassword");
             dispatcher = request.getRequestDispatcher("registration.jsp");
             dispatcher.forward(request, response);
+        } else if (!upassword.equals(uRepassword)) {
+            request.setAttribute("status", "invalidConfirmPassword");
+            dispatcher = request.getRequestDispatcher("registration.jsp");
+            dispatcher.forward(request, response);
         }
         if(umobile == null || umobile.isEmpty()){
             request.setAttribute("status", "invalidMobilePhone");
             dispatcher = request.getRequestDispatcher("registration.jsp");
             dispatcher.forward(request, response);
-        } else if(umobile.length() > 10)  {
+        }
+        else if(umobile.length() >= 10)  {
             request.setAttribute("status", "invalidMobileLength");
             dispatcher = request.getRequestDispatcher("registration.jsp");
             dispatcher.forward(request, response);

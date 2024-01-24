@@ -39,12 +39,12 @@
 								<label for="username"><i
 									class="zmdi zmdi-account material-icons-name"></i></label> <input
 									type="text" name="username" id="username"
-									placeholder="Your Name" required="required" />
+									placeholder="Your Name" />
 							</div>
 							<div class="form-group">
 								<label for="password"><i class="zmdi zmdi-lock"></i></label> <input
 									type="password" name="password" id="password"
-									placeholder="Password" required="required" />
+									placeholder="Password" />
 							</div>
 							<div class="form-group">
 								<input type="checkbox" name="remember-me" id="remember-me"
