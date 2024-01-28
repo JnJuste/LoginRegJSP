@@ -89,6 +89,12 @@
 	else if (status == "invalidPassword"){
 		swal("Sorry", "Please! Enter your Password", "error")
 	}
+	else if (status == "resetSuccess"){
+		swal("Good", "Password Reset Successfully ", "success")
+	}
+	else if (status == "resetFailed"){
+		swal("Sorry", "Password Not Reset Successfully ", "error")
+	}
 </script>
 </body>
 <!-- This templates was made by Colorlib (https://colorlib.com) -->

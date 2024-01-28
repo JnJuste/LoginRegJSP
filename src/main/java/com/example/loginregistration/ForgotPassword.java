@@ -1,19 +1,5 @@
 package com.example.loginregistration;
 
-import java.io.*;
-import java.util.Properties;
-import java.util.Random;
-
-import jakarta.servlet.http.*;
-import jakarta.servlet.annotation.*;
-
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -22,9 +8,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class ForgotPassword
- */
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.Random;
+
 @WebServlet("/forgotPassword")
 public class ForgotPassword extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +29,7 @@ public class ForgotPassword extends HttpServlet {
 			Random rand = new Random();
 			otpvalue = rand.nextInt(1255650);
 
-			String to = email;// change accordingly
+			String to = email;
 			// Get the session object
 			Properties props = new Properties();
 			props.put("mail.smtp.host", "smtp.gmail.com");
@@ -50,8 +40,7 @@ public class ForgotPassword extends HttpServlet {
 			Session session = Session.getDefaultInstance(props, new javax.mail.Authenticator() {
 				protected PasswordAuthentication getPasswordAuthentication() {
 					return new PasswordAuthentication("jeanjusteirakoze@gmail.com", "edha sswa vase gobb");// Put your email
-																									// id and
-																									// password here
+
 				}
 			});
 			// compose message
@@ -63,7 +52,7 @@ public class ForgotPassword extends HttpServlet {
 				message.setText("Your OTP is: " + otpvalue);
 				// send message
 				Transport.send(message);
-				System.out.println("message sent successfully");
+				System.out.println("OTP message sent successfully");
 			}
 
 			catch (MessagingException e) {
